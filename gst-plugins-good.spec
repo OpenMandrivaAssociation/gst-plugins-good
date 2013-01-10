@@ -1,9 +1,10 @@
 %define api	1.0
+%define oname	gstreamer%{api}
 
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
 Version:	1.0.5
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		Sound
 URL:		http://gstreamer.freedesktop.org/
@@ -18,7 +19,7 @@ BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gdk-2.0)
 BuildRequires:	pkgconfig(glib-2.0)
-BuildRequires:	pkgconfig(gstreamer-plugins-base-1.0)
+BuildRequires:	pkgconfig(gstreamer-plugins-base-%{api})
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(libv4l1)
@@ -33,9 +34,22 @@ BuildRequires:	pkgconfig(gudev-1.0)
 BuildRequires:	nasm => 0.90
 BuildRequires:	valgrind
 %endif
-Suggests:	%{name}-soup
 
 %description
+GStreamer is a streaming-media framework, based on graphs of filters which
+operate on media data. Applications using this library can do anything
+from real-time sound processing to playing videos, and just about anything
+else media-related.  Its plugin-based architecture means that new data
+types or processing capabilities can be added simply by installing new
+plug-ins.
+
+%package -n	%{oname}-plugins-good
+Group:          System/Libraries
+Summary:        Sound
+Suggests:	%{oname}-soup
+Obsoletes:	%{name}
+
+%description -n	%{oname}-plugins-good
 GStreamer is a streaming-media framework, based on graphs of filters which
 operate on media data. Applications using this library can do anything
 from real-time sound processing to playing videos, and just about anything
@@ -49,125 +63,135 @@ for the plug-in code, LGPL or LGPL-compatible for the supporting
 library). People writing elements should base their code on these
 elements.
 
-%package	jack
+%package -n	%{oname}-jack
 Summary:	GStreamer plug-in for the Jack Sound Server
 Group:		Sound
 BuildRequires:	pkgconfig(jack)
+Obsoletes:	%{name}-jack
 
-%description	jack
+%description -n	%{oname}-jack
 Plug-in for the JACK professional sound server.
 
-%files	jack
+%files -n	%{oname}-jack
 %{_libdir}/gstreamer-%{api}/libgstjack.so
 
-%package	soup
+%package -n	%{oname}-soup
 Summary:	GStreamer HTTP plugin based on libsoup
 Group:		System/Libraries
-Requires:	plugins
+Requires:	%{oname}-plugins-base
 BuildRequires:	pkgconfig(libsoup-2.4)
+Obsoletes:	%{name}-soup
 
-%description	soup
+%description -n	%{oname}-soup
 Plug-in for HTTP access based on libsoup.
 
-%files	soup
+%files -n	%{oname}-soup
 %{_libdir}/gstreamer-%{api}/libgstsouphttpsrc.so
 
-%package	pulse
+%package -n	%{oname}-pulse
 Summary:	Pulseaudio plugin for GStreamer
 Group:		Sound
-Requires:	plugins
+Requires:	%{oname}-plugins-base
 BuildRequires:	pkgconfig(libpulse)
+Obsoletes:	%{name}-pulse
 
-%description	pulse
+%description -n	%{oname}-pulse
 This is a GStreamer audio output plugin using the Pulseaudio sound server.
 
-%files	pulse
+%files -n	%{oname}-pulse
 %{_libdir}/gstreamer-%{api}/libgstpulse.so
 
-%package	dv
+%package -n	%{oname}-dv
 Summary:	GStreamer DV plug-in
 Group:		Video
-Requires:	gst-plugins-base
+Requires:	%{oname}-plugins-base
 BuildRequires:	pkgconfig(libdv)
+Obsoletes:	%{name}-dv
 
-%description	dv
+%description -n	%{oname}-dv
 Plug-in for digital video support using libdv.
 
-%files	dv
+%files -n	%{oname}-dv
 %{_libdir}/gstreamer-%{api}/libgstdv.so
 
-%package	speex
+%package -n	%{oname}-speex
 Summary:	Gstreamer plugin for encoding and decoding Ogg Speex audio files
 Group:		Sound
-Requires:	gst-plugins-base
+Requires:	%{oname}-plugins-base
 BuildRequires:	pkgconfig(speex)
+Obsoletes:	%{name}-speex
 
-%description	speex
+%description -n	%{oname}-speex
 Plug-Ins for creating and playing Ogg Speex audio files.
 
-%files	speex
+%files -n	%{oname}-speex
 %{_libdir}/gstreamer-%{api}/libgstspeex.so
 
-%package	raw1394
+%package -n	%{oname}-raw1394
 Summary:	GStreamer raw1394 Firewire plug-in
 Group:		System/Libraries
-Requires:	gst-plugins-base
+Requires:	%{oname}-plugins-base
 BuildRequires:	pkgconfig(libavc1394)
 BuildRequires:	pkgconfig(libraw1394)
 BuildRequires:	pkgconfig(libiec61883)
+Obsoletes:	%{name}-raw1394
 
-%description	raw1394
+%description -n	%{oname}-raw1394
 Plug-in for digital video support using raw1394.
 
-%files	raw1394
+%files -n	%{oname}-raw1394
 %{_libdir}/gstreamer-%{api}/libgst1394.so
 
-%package	flac
+%package -n	%{oname}-flac
 Summary:	GStreamer plug-in for FLAC lossless audio
 Group:		Sound
-Requires:	gst-plugins-base
+Requires:	%{oname}-plugins-base
 BuildRequires:	pkgconfig(flac)
+Obsoletes:	%{name}-flac
 
-%description	flac
+%description -n	%{oname}-flac
 Plug-in for the free FLAC lossless audio format.
 
-%files	flac
+%files -n	%{oname}-flac
 %{_libdir}/gstreamer-%{api}/libgstflac.so
 
-%package	aalib
+%package -n	%{oname}-aalib
 Summary:	Gstreamer plugin for Ascii-art output
 Group:		Video
-Requires:	gst-plugins-base
+Requires:	%{oname}-plugins-base
 BuildRequires:	aalib-devel
+Obsoletes:	%{name}-aalib
 
-%description	aalib
+%description -n	%{oname}-aalib
 Plugin for viewing movies in Ascii-art using aalib library.
 
-%files	aalib
+%files -n	%{oname}-aalib
 %{_libdir}/gstreamer-%{api}/libgstaasink.so
 
-%package	caca
+%package -n	%{oname}-caca
 Summary:	Gstreamer plugin for Ascii-art output
 Group:		Video
 BuildRequires:	pkgconfig(caca)
-Requires:	gst-plugins-base
+Requires:	%{oname}-plugins-base
+Obsoletes:	%{name}-caca
 
-%description	caca
+%description -n	%{oname}-caca
 Plugin for viewing movies in Ascii-art using caca library.
 
-%files	caca
+%files -n	%{oname}-caca
 %{_libdir}/gstreamer-%{api}/libgstcacasink.so
 
-%package	wavpack
+%package -n	%{oname}-wavpack
 Summary:	Gstreamer plugin for encoding and decoding WavPack audio files
 Group:		Sound
-Requires:	gst-plugins-base
+Requires:	%{oname}-plugins-base
 BuildRequires:	pkgconfig(wavpack)
+Obsoletes:	%{name}-wavpack
 
-%description	wavpack
+%description -n	%{oname}-wavpack
 Plug-Ins for creating and playing WavPack audio files.
 
-%files	wavpack
+%files -n	%{oname}-wavpack
 %{_libdir}/gstreamer-%{api}/libgstwavpack.so
 
 %prep
@@ -190,7 +214,7 @@ Plug-Ins for creating and playing WavPack audio files.
 #blino remove development doc since we don't ship devel files
 rm -rf %{buildroot}%{_docdir}/docs/plugins/html
 
-%files -f %{name}-%{api}.lang
+%files -n %{oname}-plugins-good -f %{name}-%{api}.lang
 %doc AUTHORS COPYING README NEWS
 %{_libdir}/gstreamer-%{api}/libgstalaw.so
 %{_libdir}/gstreamer-%{api}/libgstalpha.so
