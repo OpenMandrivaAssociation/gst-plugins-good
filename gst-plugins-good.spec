@@ -47,7 +47,6 @@ plug-ins.
 Group:          System/Libraries
 Summary:        Sound
 Suggests:	%{oname}-soup
-Obsoletes:	%{name}
 
 %description -n	%{oname}-plugins-good
 GStreamer is a streaming-media framework, based on graphs of filters which
@@ -67,7 +66,6 @@ elements.
 Summary:	GStreamer plug-in for the Jack Sound Server
 Group:		Sound
 BuildRequires:	pkgconfig(jack)
-Obsoletes:	%{name}-jack
 
 %description -n	%{oname}-jack
 Plug-in for the JACK professional sound server.
@@ -80,7 +78,6 @@ Summary:	GStreamer HTTP plugin based on libsoup
 Group:		System/Libraries
 Requires:	%{oname}-plugins-base
 BuildRequires:	pkgconfig(libsoup-2.4)
-Obsoletes:	%{name}-soup
 
 %description -n	%{oname}-soup
 Plug-in for HTTP access based on libsoup.
@@ -93,7 +90,6 @@ Summary:	Pulseaudio plugin for GStreamer
 Group:		Sound
 Requires:	%{oname}-plugins-base
 BuildRequires:	pkgconfig(libpulse)
-Obsoletes:	%{name}-pulse
 
 %description -n	%{oname}-pulse
 This is a GStreamer audio output plugin using the Pulseaudio sound server.
@@ -106,7 +102,6 @@ Summary:	GStreamer DV plug-in
 Group:		Video
 Requires:	%{oname}-plugins-base
 BuildRequires:	pkgconfig(libdv)
-Obsoletes:	%{name}-dv
 
 %description -n	%{oname}-dv
 Plug-in for digital video support using libdv.
@@ -119,7 +114,6 @@ Summary:	Gstreamer plugin for encoding and decoding Ogg Speex audio files
 Group:		Sound
 Requires:	%{oname}-plugins-base
 BuildRequires:	pkgconfig(speex)
-Obsoletes:	%{name}-speex
 
 %description -n	%{oname}-speex
 Plug-Ins for creating and playing Ogg Speex audio files.
@@ -134,7 +128,6 @@ Requires:	%{oname}-plugins-base
 BuildRequires:	pkgconfig(libavc1394)
 BuildRequires:	pkgconfig(libraw1394)
 BuildRequires:	pkgconfig(libiec61883)
-Obsoletes:	%{name}-raw1394
 
 %description -n	%{oname}-raw1394
 Plug-in for digital video support using raw1394.
@@ -147,7 +140,6 @@ Summary:	GStreamer plug-in for FLAC lossless audio
 Group:		Sound
 Requires:	%{oname}-plugins-base
 BuildRequires:	pkgconfig(flac)
-Obsoletes:	%{name}-flac
 
 %description -n	%{oname}-flac
 Plug-in for the free FLAC lossless audio format.
@@ -160,7 +152,6 @@ Summary:	Gstreamer plugin for Ascii-art output
 Group:		Video
 Requires:	%{oname}-plugins-base
 BuildRequires:	aalib-devel
-Obsoletes:	%{name}-aalib
 
 %description -n	%{oname}-aalib
 Plugin for viewing movies in Ascii-art using aalib library.
@@ -173,7 +164,6 @@ Summary:	Gstreamer plugin for Ascii-art output
 Group:		Video
 BuildRequires:	pkgconfig(caca)
 Requires:	%{oname}-plugins-base
-Obsoletes:	%{name}-caca
 
 %description -n	%{oname}-caca
 Plugin for viewing movies in Ascii-art using caca library.
@@ -186,7 +176,6 @@ Summary:	Gstreamer plugin for encoding and decoding WavPack audio files
 Group:		Sound
 Requires:	%{oname}-plugins-base
 BuildRequires:	pkgconfig(wavpack)
-Obsoletes:	%{name}-wavpack
 
 %description -n	%{oname}-wavpack
 Plug-Ins for creating and playing WavPack audio files.
