@@ -44,8 +44,8 @@ types or processing capabilities can be added simply by installing new
 plug-ins.
 
 %package -n	%{oname}-plugins-good
-Group:          System/Libraries
-Summary:        Sound
+Group:		System/Libraries
+Summary:	Sound
 Suggests:	%{oname}-soup
 
 %description -n	%{oname}-plugins-good
@@ -189,8 +189,8 @@ Plug-Ins for creating and playing WavPack audio files.
 
 %build
 %configure2_5x  \
-	--with-package-name='ROSA %{name} package' \
-	--with-package-origin='http://rosalinux.com' \
+	--with-package-name='OpenMandriva %{name} package' \
+	--with-package-origin='http://openmandriva.org' \
 	--enable-experimental \
 	--disable-dependency-tracking \
 	--disable-hal
