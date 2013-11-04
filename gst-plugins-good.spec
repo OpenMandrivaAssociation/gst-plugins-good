@@ -173,14 +173,14 @@ Plugin for viewing movies in Ascii-art using caca library.
 %files -n	%{oname}-caca
 %{_libdir}/gstreamer-%{api}/libgstcacasink.so
 
-%package -n %{bname}-vp8
+%package -n %{oname}-vp8
 Summary:	GStreamer VP8 plug-in
-Group:		Video/Utilities
+Group:		Video
 
-%description -n %{bname}-vp8
+%description -n %{oname}-vp8
 VP8 encoding and decoding plug-in.
 
-%files -n %{bname}-vp8
+%files -n %{oname}-vp8
 %{_libdir}/gstreamer-%{api}/libgstvpx.so
 
 %package -n	%{oname}-wavpack
