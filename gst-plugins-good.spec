@@ -4,7 +4,7 @@
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
 Version:	1.0.5
-Release:	7
+Release:	8
 License:	LGPLv2+
 Group:		Sound
 Url:		http://gstreamer.freedesktop.org/
@@ -31,6 +31,7 @@ BuildRequires:	pkgconfig(theora)
 BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(taglib)
 BuildRequires:	pkgconfig(gudev-1.0)
+BuildRequires:	pkgconfig(vpx)
 %ifarch %{ix86}
 BuildRequires:	nasm => 0.90
 BuildRequires:	valgrind
@@ -171,6 +172,16 @@ Plugin for viewing movies in Ascii-art using caca library.
 
 %files -n	%{oname}-caca
 %{_libdir}/gstreamer-%{api}/libgstcacasink.so
+
+%package -n %{bname}-vp8
+Summary:	GStreamer VP8 plug-in
+Group:		Video/Utilities
+
+%description -n %{bname}-vp8
+VP8 encoding and decoding plug-in.
+
+%files -n %{bname}-vp8
+%{_libdir}/gstreamer-%{majorminor}/libgstvpx.so
 
 %package -n	%{oname}-wavpack
 Summary:	Gstreamer plugin for encoding and decoding WavPack audio files
