@@ -181,7 +181,7 @@ Group:		Video/Utilities
 VP8 encoding and decoding plug-in.
 
 %files -n %{bname}-vp8
-%{_libdir}/gstreamer-%{majorminor}/libgstvpx.so
+%{_libdir}/gstreamer-%{api}/libgstvpx.so
 
 %package -n	%{oname}-wavpack
 Summary:	Gstreamer plugin for encoding and decoding WavPack audio files
