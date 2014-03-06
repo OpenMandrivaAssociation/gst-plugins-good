@@ -229,6 +229,7 @@ rm -rf %{buildroot}%{_docdir}/docs/plugins/html
 %{_libdir}/gstreamer-%{api}/libgstcutter.so
 %{_libdir}/gstreamer-%{api}/libgstdebug.so
 %{_libdir}/gstreamer-%{api}/libgstdeinterlace.so
+%{_libdir}/gstreamer-%{api}/libgstdtmf.so
 %{_libdir}/gstreamer-%{api}/libgsteffectv.so
 %{_libdir}/gstreamer-%{api}/libgstflv.so
 %{_libdir}/gstreamer-%{api}/libgstequalizer.so
