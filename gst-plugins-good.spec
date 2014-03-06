@@ -3,13 +3,12 @@
 
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
-Version:	1.0.5
-Release:	12
+Version:	1.2.3
+Release:	1
 License:	LGPLv2+
 Group:		Sound
 Url:		http://gstreamer.freedesktop.org/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gst-plugins-good/%{api}/%{name}-%{version}.tar.xz
-Patch0:		gst-plugins-v4l2-0.10.31-linux-headers-3.9.patch
 
 #BuildRequires:	gst-plugins-base
 BuildRequires:	bzip2-devel
