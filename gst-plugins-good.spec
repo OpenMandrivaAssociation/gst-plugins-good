@@ -3,13 +3,12 @@
 
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
-Version:	1.0.5
-Release:	9
+Version:	1.2.3
+Release:	1
 License:	LGPLv2+
 Group:		Sound
 Url:		http://gstreamer.freedesktop.org/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gst-plugins-good/%{api}/%{name}-%{version}.tar.xz
-Patch0:		gst-plugins-v4l2-0.10.31-linux-headers-3.9.patch
 
 #BuildRequires:	gst-plugins-base
 BuildRequires:	bzip2-devel
@@ -230,6 +229,7 @@ rm -rf %{buildroot}%{_docdir}/docs/plugins/html
 %{_libdir}/gstreamer-%{api}/libgstcutter.so
 %{_libdir}/gstreamer-%{api}/libgstdebug.so
 %{_libdir}/gstreamer-%{api}/libgstdeinterlace.so
+%{_libdir}/gstreamer-%{api}/libgstdtmf.so
 %{_libdir}/gstreamer-%{api}/libgsteffectv.so
 %{_libdir}/gstreamer-%{api}/libgstflv.so
 %{_libdir}/gstreamer-%{api}/libgstequalizer.so
