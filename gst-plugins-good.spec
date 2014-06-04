@@ -58,6 +58,7 @@ plug-ins.
 Group:		System/Libraries
 Summary:	Sound
 Suggests:	%{oname}-soup
+%rename		gstreamer1.0-voip
 
 %description -n	%{oname}-plugins-good
 GStreamer is a streaming-media framework, based on graphs of filters which
