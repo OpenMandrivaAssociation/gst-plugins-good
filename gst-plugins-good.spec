@@ -14,23 +14,33 @@ Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gst-plugins-good/%{api}/%{name}-%
 BuildRequires:	bzip2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
+BuildRequires:	pkgconfig(cairo) >= 1.10.0
+BuildRequires:	pkgconfig(cairo-gobject) >= 1.10.0
 BuildRequires:	pkgconfig(check)
 BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gdk-2.0)
+BuildRequires:	pkgconfig(gdk-pixbuf-2.0) >= 2.8.0
 BuildRequires:	pkgconfig(glib-2.0)
-BuildRequires:	pkgconfig(gstreamer-plugins-base-%{api})
 BuildRequires:	pkgconfig(glu)
+BuildRequires:	pkgconfig(gstreamer-plugins-base-%{api})
+BuildRequires:	pkgconfig(gtk+-3.0) >= 3.0.0
+BuildRequires:	pkgconfig(gtk+-x11-3.0) >= 3.0.0
+BuildRequires:	pkgconfig(gudev-1.0) >= 143
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(libv4l1)
 BuildRequires:	pkgconfig(libv4l2)
 BuildRequires:	pkgconfig(orc-0.4)
 BuildRequires:	pkgconfig(shout)
+BuildRequires:	pkgconfig(taglib) >= 1.5
 BuildRequires:	pkgconfig(theora)
 BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(taglib)
-BuildRequires:	pkgconfig(gudev-1.0)
 BuildRequires:	pkgconfig(vpx)
+BuildRequires:	pkgconfig(xdamage)
+BuildRequires:	pkgconfig(xext)
+BuildRequires:	pkgconfig(xfixes)
+BuildRequires:	pkgconfig(xv)
 %ifarch %{ix86}
 BuildRequires:	nasm => 0.90
 BuildRequires:	valgrind
