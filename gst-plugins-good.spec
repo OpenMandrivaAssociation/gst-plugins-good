@@ -223,7 +223,7 @@ Plug-Ins for creating and playing WavPack audio files.
 %find_lang %{name}-%{api}
 
 #blino remove development doc since we don't ship devel files
-rm -rf %{buildroot}%{_docdir}/docs/plugins/html
+rm -rf %{buildroot}%{_docdir}/docs/plugins/html %{buildroot}%{_datadir}/gtk-doc
 
 %files -n %{oname}-plugins-good -f %{name}-%{api}.lang
 %doc AUTHORS COPYING README NEWS
