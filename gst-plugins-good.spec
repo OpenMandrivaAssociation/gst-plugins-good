@@ -32,7 +32,6 @@ BuildRequires:	pkgconfig(libv4l1)
 BuildRequires:	pkgconfig(libv4l2)
 BuildRequires:	pkgconfig(orc-0.4)
 BuildRequires:	pkgconfig(shout)
-BuildRequires:	pkgconfig(taglib) >= 1.5
 BuildRequires:	pkgconfig(theora)
 BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(taglib)
@@ -210,6 +209,8 @@ Plug-Ins for creating and playing WavPack audio files.
 %apply_patches
 
 %build
+export CXX=g++
+export CC=gcc
 %configure2_5x  \
 	--with-package-name='OpenMandriva %{name} package' \
 	--with-package-origin='http://openmandriva.org' \
