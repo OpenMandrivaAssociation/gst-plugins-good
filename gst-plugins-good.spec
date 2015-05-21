@@ -3,24 +3,30 @@
 
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
-Version:	1.2.3
+Version:	1.4.5
 Release:	1
 License:	LGPLv2+
 Group:		Sound
 Url:		http://gstreamer.freedesktop.org/
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gst-plugins-good/%{api}/%{name}-%{version}.tar.xz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gst-plugins-good/1.4/%{name}-%{version}.tar.xz
 
 #BuildRequires:	gst-plugins-base
 BuildRequires:	bzip2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
+BuildRequires:	pkgconfig(cairo) >= 1.10.0
+BuildRequires:	pkgconfig(cairo-gobject) >= 1.10.0
 BuildRequires:	pkgconfig(check)
 BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gdk-2.0)
+BuildRequires:	pkgconfig(gdk-pixbuf-2.0) >= 2.8.0
 BuildRequires:	pkgconfig(glib-2.0)
-BuildRequires:	pkgconfig(gstreamer-plugins-base-%{api})
 BuildRequires:	pkgconfig(glu)
+BuildRequires:	pkgconfig(gstreamer-plugins-base-%{api})
+BuildRequires:	pkgconfig(gtk+-3.0) >= 3.0.0
+BuildRequires:	pkgconfig(gtk+-x11-3.0) >= 3.0.0
+BuildRequires:	pkgconfig(gudev-1.0) >= 143
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(libv4l1)
 BuildRequires:	pkgconfig(libv4l2)
@@ -29,8 +35,11 @@ BuildRequires:	pkgconfig(shout)
 BuildRequires:	pkgconfig(theora)
 BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(taglib)
-BuildRequires:	pkgconfig(gudev-1.0)
 BuildRequires:	pkgconfig(vpx)
+BuildRequires:	pkgconfig(xdamage)
+BuildRequires:	pkgconfig(xext)
+BuildRequires:	pkgconfig(xfixes)
+BuildRequires:	pkgconfig(xv)
 %ifarch %{ix86}
 BuildRequires:	nasm => 0.90
 BuildRequires:	valgrind
@@ -48,6 +57,7 @@ plug-ins.
 Group:		System/Libraries
 Summary:	Sound
 Suggests:	%{oname}-soup
+%rename		gstreamer1.0-voip
 
 %description -n	%{oname}-plugins-good
 GStreamer is a streaming-media framework, based on graphs of filters which
@@ -199,6 +209,8 @@ Plug-Ins for creating and playing WavPack audio files.
 %apply_patches
 
 %build
+export CXX=g++
+export CC=gcc
 %configure2_5x  \
 	--with-package-name='OpenMandriva %{name} package' \
 	--with-package-origin='http://openmandriva.org' \
@@ -212,7 +224,7 @@ Plug-Ins for creating and playing WavPack audio files.
 %find_lang %{name}-%{api}
 
 #blino remove development doc since we don't ship devel files
-rm -rf %{buildroot}%{_docdir}/docs/plugins/html
+rm -rf %{buildroot}%{_docdir}/docs/plugins/html %{buildroot}%{_datadir}/gtk-doc
 
 %files -n %{oname}-plugins-good -f %{name}-%{api}.lang
 %doc AUTHORS COPYING README NEWS
