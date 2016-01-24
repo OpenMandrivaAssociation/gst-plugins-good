@@ -3,7 +3,7 @@
 
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
-Version:	1.6.2
+Version:	1.6.3
 Release:	1
 License:	LGPLv2+
 Group:		Sound
@@ -211,9 +211,9 @@ Plug-Ins for creating and playing WavPack audio files.
 %build
 export CXX=g++
 export CC=gcc
-%configure2_5x  \
+%configure \
 	--with-package-name='OpenMandriva %{name} package' \
-	--with-package-origin='http://openmandriva.org' \
+	--with-package-origin="%{disturl}" \
 	--enable-experimental \
 	--disable-dependency-tracking \
 	--disable-hal
@@ -287,4 +287,3 @@ rm -rf %{buildroot}%{_docdir}/docs/plugins/html %{buildroot}%{_datadir}/gtk-doc
 %dir %{_datadir}/gstreamer-%{api}/
 %dir %{_datadir}/gstreamer-%{api}/presets
 %{_datadir}/gstreamer-%{api}/presets/*
-
