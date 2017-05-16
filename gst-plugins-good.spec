@@ -1,18 +1,16 @@
 # With LTO, libtool barfs because it can't interpret NM output
 %define _disable_lto 1
-%define api	1.0
-%define oname	gstreamer%{api}
+%define api 1.0
+%define oname gstreamer%{api}
 
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
-Version:	1.10.2
-Release:	2
+Version:	1.12.0
+Release:	1
 License:	LGPLv2+
 Group:		Sound
 Url:		http://gstreamer.freedesktop.org/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gst-plugins-good/%(echo %{version}|cut -d. -f1-2)/%{name}-%{version}.tar.xz
-
-#BuildRequires:	gst-plugins-base
 BuildRequires:	bzip2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
@@ -96,7 +94,7 @@ BuildRequires:	pkgconfig(libsoup-2.4)
 Plug-in for HTTP access based on libsoup.
 
 %files -n	%{oname}-soup
-%{_libdir}/gstreamer-%{api}/libgstsouphttpsrc.so
+%{_libdir}/gstreamer-%{api}/libgstsoup.so
 
 %package -n	%{oname}-pulse
 Summary:	Pulseaudio plugin for GStreamer
@@ -108,7 +106,7 @@ BuildRequires:	pkgconfig(libpulse)
 This is a GStreamer audio output plugin using the Pulseaudio sound server.
 
 %files -n	%{oname}-pulse
-%{_libdir}/gstreamer-%{api}/libgstpulse.so
+%{_libdir}/gstreamer-%{api}/libgstpulseaudio.so
 
 %package -n	%{oname}-dv
 Summary:	GStreamer DV plug-in
@@ -265,7 +263,7 @@ rm -rf %{buildroot}%{_docdir}/docs/plugins/html %{buildroot}%{_datadir}/gtk-doc
 %{_libdir}/gstreamer-%{api}/libgstmultipart.so
 %{_libdir}/gstreamer-%{api}/libgstnavigationtest.so
 %{_libdir}/gstreamer-%{api}/libgstossaudio.so
-%{_libdir}/gstreamer-%{api}/libgstoss4audio.so
+%{_libdir}/gstreamer-%{api}/libgstoss4.so
 %{_libdir}/gstreamer-%{api}/libgstpng.so
 %{_libdir}/gstreamer-%{api}/libgstreplaygain.so
 %{_libdir}/gstreamer-%{api}/libgstrtp.so
