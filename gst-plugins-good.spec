@@ -1,18 +1,16 @@
 # With LTO, libtool barfs because it can't interpret NM output
 %define _disable_lto 1
-%define api	1.0
-%define oname	gstreamer%{api}
+%define api 1.0
+%define oname gstreamer%{api}
 
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
-Version:	1.10.2
-Release:	2
+Version:	1.12.0
+Release:	1
 License:	LGPLv2+
 Group:		Sound
 Url:		http://gstreamer.freedesktop.org/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gst-plugins-good/%(echo %{version}|cut -d. -f1-2)/%{name}-%{version}.tar.xz
-
-#BuildRequires:	gst-plugins-base
 BuildRequires:	bzip2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
