@@ -27,7 +27,7 @@ BuildRequires:	pkgconfig(gstreamer-plugins-base-%{api})
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.0.0
 BuildRequires:	pkgconfig(gtk+-x11-3.0) >= 3.0.0
 BuildRequires:	pkgconfig(gudev-1.0) >= 143
-BuildRequire:	pkgconfig(lame)
+BuildRequires:	pkgconfig(lame)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(libv4l1)
 BuildRequires:	pkgconfig(libv4l2)
