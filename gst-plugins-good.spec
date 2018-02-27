@@ -30,6 +30,7 @@ BuildRequires:	pkgconfig(gudev-1.0) >= 143
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(libv4l1)
 BuildRequires:	pkgconfig(libv4l2)
+BuildRequires: pkgconfig(libmpg123)
 BuildRequires:	pkgconfig(orc-0.4)
 BuildRequires:	pkgconfig(shout)
 BuildRequires:	pkgconfig(theora)
@@ -249,15 +250,18 @@ rm -rf %{buildroot}%{_docdir}/docs/plugins/html %{buildroot}%{_datadir}/gtk-doc
 %{_libdir}/gstreamer-%{api}/libgstgdkpixbuf.so
 %{_libdir}/gstreamer-%{api}/libgstgoom.so
 %{_libdir}/gstreamer-%{api}/libgstgoom2k1.so
+%{_libdir}/gstreamer-%{api}/libgstgtk.so
 %{_libdir}/gstreamer-%{api}/libgsticydemux.so
 %{_libdir}/gstreamer-%{api}/libgstid3demux.so
 %{_libdir}/gstreamer-%{api}/libgstimagefreeze.so
 %{_libdir}/gstreamer-%{api}/libgstinterleave.so
 %{_libdir}/gstreamer-%{api}/libgstisomp4.so
 %{_libdir}/gstreamer-%{api}/libgstjpeg.so
+%{_libdir}/gstreamer-%{api}/libgstlame.so
 %{_libdir}/gstreamer-%{api}/libgstlevel.so
 %{_libdir}/gstreamer-%{api}/libgstmatroska.so
 %{_libdir}/gstreamer-%{api}/libgstmonoscope.so
+%{_libdir}/gstreamer-%{api}/libgstmpg123.so
 %{_libdir}/gstreamer-%{api}/libgstmulaw.so
 %{_libdir}/gstreamer-%{api}/libgstmultifile.so
 %{_libdir}/gstreamer-%{api}/libgstmultipart.so
@@ -265,6 +269,7 @@ rm -rf %{buildroot}%{_docdir}/docs/plugins/html %{buildroot}%{_datadir}/gtk-doc
 %{_libdir}/gstreamer-%{api}/libgstossaudio.so
 %{_libdir}/gstreamer-%{api}/libgstoss4.so
 %{_libdir}/gstreamer-%{api}/libgstpng.so
+%{_libdir}/gstreamer-%{api}/libgstqmlgl.so
 %{_libdir}/gstreamer-%{api}/libgstreplaygain.so
 %{_libdir}/gstreamer-%{api}/libgstrtp.so
 %{_libdir}/gstreamer-%{api}/libgstrtpmanager.so
@@ -275,6 +280,7 @@ rm -rf %{buildroot}%{_docdir}/docs/plugins/html %{buildroot}%{_datadir}/gtk-doc
 %{_libdir}/gstreamer-%{api}/libgstspectrum.so
 %{_libdir}/gstreamer-%{api}/libgsttaglib.so
 %{_libdir}/gstreamer-%{api}/libgstudp.so
+%{_libdir}/gstreamer-%{api}/libgsttwolame.so
 %{_libdir}/gstreamer-%{api}/libgstvideo4linux2.so
 %{_libdir}/gstreamer-%{api}/libgstvideobox.so
 %{_libdir}/gstreamer-%{api}/libgstvideocrop.so
