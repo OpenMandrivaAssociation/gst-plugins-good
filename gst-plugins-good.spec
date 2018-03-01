@@ -136,6 +136,34 @@ Plug-Ins for creating and playing Ogg Speex audio files.
 %files -n	%{oname}-speex
 %{_libdir}/gstreamer-%{api}/libgstspeex.so
 
+
+%package -n %{oname}-lame
+Summary: GStreamer plug-in for encoding mp3 songs using lame
+Group: Sound
+Requires: %{oname}-plugins-base
+BuildRequires: %{oname}-plugins-base
+BuildRequires: %{oname}-tools
+BuildRequires: lame-devel >= 3.89
+
+%description -n %{oname}-lame
+Plug-in for encoding mp3 with lame under GStreamer.
+
+%files -n %{oname}-lame
+%{_libdir}/gstreamer-%{api}/libgstlame.so
+
+%package -n %{oname}-twolame
+Summary: GStreamer plug-in for MP2 encoding support
+Group: Sound
+Requires: %{oname}-plugins-base
+BuildRequires: pkgconfig(twolame)
+
+%description -n %{oname}-twolame
+Plug-in for encoding MP2 under GStreamer.
+
+%files -n %{oname}-twolame
+%{_libdir}/gstreamer-%{api}/libgsttwolame.so
+
+
 %package -n	%{oname}-raw1394
 Summary:	GStreamer raw1394 Firewire plug-in
 Group:		System/Libraries
@@ -260,7 +288,6 @@ rm -rf %{buildroot}%{_docdir}/docs/plugins/html %{buildroot}%{_datadir}/gtk-doc
 %{_libdir}/gstreamer-%{api}/libgstinterleave.so
 %{_libdir}/gstreamer-%{api}/libgstisomp4.so
 %{_libdir}/gstreamer-%{api}/libgstjpeg.so
-%{_libdir}/gstreamer-%{api}/libgstlame.so
 %{_libdir}/gstreamer-%{api}/libgstlevel.so
 %{_libdir}/gstreamer-%{api}/libgstmatroska.so
 %{_libdir}/gstreamer-%{api}/libgstmonoscope.so
@@ -283,7 +310,6 @@ rm -rf %{buildroot}%{_docdir}/docs/plugins/html %{buildroot}%{_datadir}/gtk-doc
 %{_libdir}/gstreamer-%{api}/libgstspectrum.so
 %{_libdir}/gstreamer-%{api}/libgsttaglib.so
 %{_libdir}/gstreamer-%{api}/libgstudp.so
-%{_libdir}/gstreamer-%{api}/libgsttwolame.so
 %{_libdir}/gstreamer-%{api}/libgstvideo4linux2.so
 %{_libdir}/gstreamer-%{api}/libgstvideobox.so
 %{_libdir}/gstreamer-%{api}/libgstvideocrop.so
