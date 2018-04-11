@@ -1,4 +1,2 @@
-removed_sources:
-  gst-plugins-good-1.12.3.tar.xz: e29b0f765b445c8742a31cfd7d43c4d318aedea7
 sources:
-  gst-plugins-good-1.13.1.tar.xz: f9e41cb3d5f0d2a582ce6cbed910ffdb4e67505d
+  gst-plugins-good-1.14.0.tar.xz: d295c35c46bc6c800ecf34e7a054a7b764b94a3d
