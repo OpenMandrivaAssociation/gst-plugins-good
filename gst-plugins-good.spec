@@ -5,12 +5,17 @@
 
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
-Version:	1.14.0
+Version:	1.14.1
 Release:	1
 License:	LGPLv2+
 Group:		Sound
 Url:		http://gstreamer.freedesktop.org/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gst-plugins-good/%(echo %{version}|cut -d. -f1-2)/%{name}-%{version}.tar.xz
+# For some reason, configure fails to detect a C++ compiler.
+# Since this isn't the 1970s, we'll just assume every system
+# has one and skip the test.
+Patch0:		gst-plugins-good-skip-c++-check.patch
+Patch1:		gst-plugins-good-meson-qt.patch
 BuildRequires:	bzip2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
@@ -44,6 +49,7 @@ BuildRequires:	pkgconfig(xdamage)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(xv)
+BuildRequires:	meson ninja
 %ifarch %{ix86}
 BuildRequires:	nasm => 0.90
 BuildRequires:	valgrind
@@ -237,22 +243,22 @@ Plug-Ins for creating and playing WavPack audio files.
 %{_libdir}/gstreamer-%{api}/libgstwavpack.so
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
+%if "%{_lib}" != "lib64"
+sed -i -e 's,lib64,%{_lib},g' ext/qt/meson.build
+%endif
 
 %build
-export CXX=g++
-export CC=gcc
-%configure \
-	--with-package-name='OpenMandriva %{name} package' \
-	--with-package-origin="%{disturl}" \
-	--enable-experimental \
-	--disable-dependency-tracking \
-	--disable-hal
-%make
+# FIXME Workaround for meson 0.46.1 choking on the checks
+echo 'have_oss4 = false' > sys/oss4/meson.build
+%meson \
+	-Duse_orc=yes \
+	-Dwith-package-name='OpenMandriva %{name} %{version}-%{release}' \
+	-Dwith-package-origin='%{disturl}'
+%meson_build
 
 %install
-%makeinstall_std
+%meson_install
 %find_lang %{name}-%{api}
 
 #blino remove development doc since we don't ship devel files
@@ -297,7 +303,6 @@ rm -rf %{buildroot}%{_docdir}/docs/plugins/html %{buildroot}%{_datadir}/gtk-doc
 %{_libdir}/gstreamer-%{api}/libgstmultipart.so
 %{_libdir}/gstreamer-%{api}/libgstnavigationtest.so
 %{_libdir}/gstreamer-%{api}/libgstossaudio.so
-%{_libdir}/gstreamer-%{api}/libgstoss4.so
 %{_libdir}/gstreamer-%{api}/libgstpng.so
 %{_libdir}/gstreamer-%{api}/libgstqmlgl.so
 %{_libdir}/gstreamer-%{api}/libgstreplaygain.so

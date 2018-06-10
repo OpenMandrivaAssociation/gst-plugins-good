@@ -1,0 +1,31 @@
+diff -up gst-plugins-good-1.14.1/configure.ac.omv~ gst-plugins-good-1.14.1/configure.ac
+--- gst-plugins-good-1.14.1/configure.ac.omv~	2018-06-10 12:57:30.201575630 +0200
++++ gst-plugins-good-1.14.1/configure.ac	2018-06-10 12:57:50.812576759 +0200
+@@ -115,8 +115,6 @@ AC_PROG_CC_STDC
+ 
+ dnl determine c++ compiler
+ AC_PROG_CXX
+-dnl determine if c++ is available on this system
+-AC_CHECK_PROG(HAVE_CXX, $CXX, yes, no)
+ 
+ dnl determine c++ preprocessor
+ dnl FIXME: do we need this ?
+@@ -992,10 +990,6 @@ dnl *** taglib ***
+ translit(dnm, m, l) AM_CONDITIONAL(USE_TAGLIB, true)
+ AG_GST_CHECK_FEATURE(TAGLIB, [taglib tagging library], taglib, [
+   AG_GST_PKG_CHECK_MODULES(TAGLIB, taglib >= 1.5)
+-  if test "x$HAVE_CXX" != "xyes"; then
+-    USE_TAGLIB=false
+-    AC_MSG_NOTICE([Not building taglib plugin: no C++ compiler found])
+-  else
+     dnl work around bug in taglib 1.5 headers, remove once there is a 1.6
+     AS_CXX_COMPILER_FLAG([-Wno-attributes], [
+         TAGLIB_CXXFLAGS="$TAGLIB_CFLAGS -Wno-attributes"
+@@ -1003,7 +997,6 @@ AG_GST_CHECK_FEATURE(TAGLIB, [taglib tag
+         TAGLIB_CXXFLAGS="$TAGLIB_CFLAGS"
+     ])
+     AC_SUBST(TAGLIB_CXXFLAGS)
+-  fi
+ ])
+ 
+ dnl *** twolame ***
