@@ -6,7 +6,7 @@
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
 Version:	1.14.4
-Release:	2
+Release:	3
 License:	LGPLv2+
 Group:		Sound
 Url:		http://gstreamer.freedesktop.org/
@@ -49,7 +49,9 @@ BuildRequires:	pkgconfig(xdamage)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(xv)
-BuildRequires:	meson ninja
+BuildRequires:	cmake(Qt5LinguistTools)
+BuildRequires:	meson
+BuildRequires:	ninja
 %ifarch %{ix86}
 BuildRequires:	nasm => 0.90
 BuildRequires:	valgrind
@@ -255,6 +257,7 @@ echo 'have_oss4 = false' > sys/oss4/meson.build
 	-Duse_orc=yes \
 	-Dwith-package-name='OpenMandriva %{name} %{version}-%{release}' \
 	-Dwith-package-origin='%{disturl}'
+
 %meson_build
 
 %install
