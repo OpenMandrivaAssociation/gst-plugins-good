@@ -49,6 +49,7 @@ BuildRequires:	pkgconfig(xdamage)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(xv)
+BuildRequires:	pkgconfig(valgrind)
 BuildRequires:	cmake(Qt5LinguistTools)
 BuildRequires:	meson
 BuildRequires:	ninja
