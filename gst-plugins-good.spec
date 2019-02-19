@@ -6,7 +6,7 @@
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
 Version:	1.14.4
-Release:	3
+Release:	4
 License:	LGPLv2+
 Group:		Sound
 Url:		http://gstreamer.freedesktop.org/
@@ -16,6 +16,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/gst-plugins-good/%(echo %{versio
 # has one and skip the test.
 Patch0:		gst-plugins-good-skip-c++-check.patch
 Patch1:		gst-plugins-good-meson-qt.patch
+Patch2:		libvpx-1.8.patch
 BuildRequires:	bzip2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
@@ -44,7 +45,7 @@ BuildRequires:	pkgconfig(theora)
 BuildRequires:	pkgconfig(twolame)
 BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(taglib)
-BuildRequires:	pkgconfig(vpx)
+BuildRequires:	pkgconfig(vpx) >= 1.8.0
 BuildRequires:	pkgconfig(xdamage)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xfixes)
