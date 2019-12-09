@@ -1,12 +1,10 @@
-# With LTO, libtool barfs because it can't interpret NM output
-%define _disable_lto 1
 %define api 1.0
 %define oname gstreamer%{api}
 
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
 Version:	1.16.2
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		Sound
 Url:		http://gstreamer.freedesktop.org/
@@ -42,6 +40,7 @@ BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Qml)
 BuildRequires:	pkgconfig(Qt5Quick)
+BuildRequires:	pkgconfig(Qt5X11Extras)
 BuildRequires:	pkgconfig(shout)
 BuildRequires:	pkgconfig(theora)
 BuildRequires:	pkgconfig(twolame)
