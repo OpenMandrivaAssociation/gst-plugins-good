@@ -3,16 +3,12 @@
 
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
-Version:	1.16.2
-Release:	4
+Version:	1.18.0
+Release:	1
 License:	LGPLv2+
 Group:		Sound
 Url:		http://gstreamer.freedesktop.org/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gst-plugins-good/%(echo %{version}|cut -d. -f1-2)/%{name}-%{version}.tar.xz
-# For some reason, configure fails to detect a C++ compiler.
-# Since this isn't the 1970s, we'll just assume every system
-# has one and skip the test.
-Patch0:		gst-plugins-good-skip-c++-check.patch
 BuildRequires:	bzip2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
@@ -259,7 +255,13 @@ sed -i -e 's,lib64,%{_lib},g' ext/qt/meson.build
 echo 'have_oss4 = false' > sys/oss4/meson.build
 %meson \
 	-Duse_orc=yes \
+	-Ddoc=disabled \
 	-Dwith-package-name='OpenMandriva %{name} %{version}-%{release}' \
+%ifarch %{armx}
+	-Drpicamsrc=enabled \
+%else
+	-Drpicamsrc=disabled \
+%endif
 	-Dwith-package-origin='%{disturl}'
 
 %meson_build
