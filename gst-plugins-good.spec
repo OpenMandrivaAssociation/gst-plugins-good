@@ -257,11 +257,7 @@ echo 'have_oss4 = false' > sys/oss4/meson.build
 	-Duse_orc=yes \
 	-Ddoc=disabled \
 	-Dwith-package-name='OpenMandriva %{name} %{version}-%{release}' \
-%ifarch %{armx}
-	-Drpicamsrc=enabled \
-%else
 	-Drpicamsrc=disabled \
-%endif
 	-Dwith-package-origin='%{disturl}'
 
 %meson_build
