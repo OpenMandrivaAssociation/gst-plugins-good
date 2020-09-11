@@ -51,11 +51,12 @@ BuildRequires:	pkgconfig(xv)
 BuildRequires:	pkgconfig(valgrind)
 BuildRequires:	cmake(Qt5LinguistTools)
 BuildRequires:	meson
-BuildRequires:	nasm
 BuildRequires:	ninja
-%ifarch %{ix86}
+%ifarch %{ix86} %{x86_64}
 BuildRequires:	nasm => 0.90
+%ifarch %{ix86}
 BuildRequires:	valgrind
+%endif
 %endif
 
 %description
