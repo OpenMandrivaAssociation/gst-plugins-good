@@ -9,6 +9,7 @@ License:	LGPLv2+
 Group:		Sound
 Url:		http://gstreamer.freedesktop.org/
 Source0:	https://gitlab.freedesktop.org/gstreamer/gst-plugins-good/-/archive/%{version}/gst-plugins-good-%{version}.tar.bz2
+Patch0:		gstreamer1-plugins-good-gcc11.patch
 BuildRequires:	bzip2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
@@ -247,7 +248,7 @@ Plug-Ins for creating and playing WavPack audio files.
 %{_libdir}/gstreamer-%{api}/libgstwavpack.so
 
 %prep
-%autosetup -p1
+%autosetup -p2
 %if "%{_lib}" != "lib64"
 sed -i -e 's,lib64,%{_lib},g' ext/qt/meson.build
 %endif
