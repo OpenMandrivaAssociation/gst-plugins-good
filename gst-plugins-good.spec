@@ -248,7 +248,7 @@ Plug-Ins for creating and playing WavPack audio files.
 %{_libdir}/gstreamer-%{api}/libgstwavpack.so
 
 %prep
-%autosetup -p1
+%autosetup -p2
 %if "%{_lib}" != "lib64"
 sed -i -e 's,lib64,%{_lib},g' ext/qt/meson.build
 %endif
