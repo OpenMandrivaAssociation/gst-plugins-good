@@ -9,7 +9,6 @@ License:	LGPLv2+
 Group:		Sound
 Url:		http://gstreamer.freedesktop.org/
 Source0:	https://gitlab.freedesktop.org/gstreamer/gst-plugins-good/-/archive/%{version}/gst-plugins-good-%{version}.tar.bz2
-Patch0:		gstreamer1-plugins-good-gcc11.patch
 BuildRequires:	bzip2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
