@@ -256,11 +256,11 @@ sed -i -e 's,lib64,%{_lib},g' ext/qt/meson.build
 # FIXME Workaround for meson 0.46.1 choking on the checks
 echo 'have_oss4 = false' > sys/oss4/meson.build
 %meson \
-	-Duse_orc=yes \
+	-Dorc=enabled \
 	-Ddoc=disabled \
-	-Dwith-package-name='OpenMandriva %{name} %{version}-%{release}' \
+	-Dpackage-name='OpenMandriva %{name} %{version}-%{release}' \
 	-Drpicamsrc=disabled \
-	-Dwith-package-origin='%{disturl}'
+	-Dpackage-origin='%{disturl}'
 
 %meson_build
 
