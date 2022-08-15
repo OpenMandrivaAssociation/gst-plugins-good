@@ -3,7 +3,7 @@
 
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
-Version:	1.20.0
+Version:	1.20.3
 Release:	1
 License:	LGPLv2+
 Group:		Sound
@@ -272,7 +272,7 @@ echo 'have_oss4 = false' > sys/oss4/meson.build
 rm -rf %{buildroot}%{_docdir}/docs/plugins/html %{buildroot}%{_datadir}/gtk-doc
 
 %files -n %{oname}-plugins-good -f %{name}-%{api}.lang
-%doc AUTHORS COPYING README NEWS
+%doc AUTHORS COPYING README* NEWS
 %{_libdir}/gstreamer-%{api}/libgstalaw.so
 %{_libdir}/gstreamer-%{api}/libgstalpha.so
 %{_libdir}/gstreamer-%{api}/libgstalphacolor.so
