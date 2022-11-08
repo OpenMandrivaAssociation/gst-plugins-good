@@ -3,7 +3,7 @@
 
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
-Version:	1.21.1
+Version:	1.21.2
 Release:	1
 License:	LGPLv2+
 Group:		Sound
@@ -331,6 +331,7 @@ rm -rf %{buildroot}%{_docdir}/docs/plugins/html %{buildroot}%{_datadir}/gtk-doc
 %{_libdir}/gstreamer-%{api}/libgstwavenc.so
 %{_libdir}/gstreamer-%{api}/libgstwavparse.so
 %{_libdir}/gstreamer-%{api}/libgstximagesrc.so
+%{_libdir}/gstreamer-%{api}/libgstxingmux.so
 %{_libdir}/gstreamer-%{api}/libgsty4menc.so
 %dir %{_datadir}/gstreamer-%{api}/
 %dir %{_datadir}/gstreamer-%{api}/presets
