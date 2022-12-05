@@ -3,7 +3,7 @@
 
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
-Version:	1.21.2
+Version:	1.21.3
 Release:	1
 License:	LGPLv2+
 Group:		Sound
@@ -38,6 +38,12 @@ BuildRequires:	pkgconfig(Qt5Qml)
 BuildRequires:	pkgconfig(Qt5Quick)
 BuildRequires:	pkgconfig(Qt5X11Extras)
 BuildRequires:	pkgconfig(Qt5WaylandClient)
+BuildRequires:	cmake(Qt6Core)
+BuildRequires:	cmake(Qt6Gui)
+BuildRequires:	cmake(Qt6Widgets)
+BuildRequires:	cmake(Qt6Qml)
+BuildRequires:	cmake(Qt6Quick)
+BuildRequires:	cmake(Qt6WaylandClient)
 BuildRequires:	pkgconfig(shout)
 BuildRequires:	pkgconfig(theora)
 BuildRequires:	pkgconfig(twolame)
@@ -313,6 +319,7 @@ rm -rf %{buildroot}%{_docdir}/docs/plugins/html %{buildroot}%{_datadir}/gtk-doc
 %{_libdir}/gstreamer-%{api}/libgstossaudio.so
 %{_libdir}/gstreamer-%{api}/libgstpng.so
 %{_libdir}/gstreamer-%{api}/libgstqmlgl.so
+%{_libdir}/gstreamer-%{api}/libgstqml6.so
 %{_libdir}/gstreamer-%{api}/libgstreplaygain.so
 %{_libdir}/gstreamer-%{api}/libgstrtp.so
 %{_libdir}/gstreamer-%{api}/libgstrtpmanager.so
