@@ -58,6 +58,7 @@ BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(xv)
 BuildRequires:	pkgconfig(valgrind)
 BuildRequires:	cmake(Qt5LinguistTools)
+BuildRequires:	pkgconfig(openssl)
 BuildRequires:	meson
 BuildRequires:	ninja
 %ifarch %{ix86} %{x86_64}
@@ -76,8 +77,8 @@ types or processing capabilities can be added simply by installing new
 plug-ins.
 
 %package -n %{oname}-plugins-good
+Summary:	GStreamer good plug-ins
 Group:		System/Libraries
-Summary:	Sound
 Suggests:	%{oname}-soup
 %rename		gstreamer1.0-voip
 
@@ -96,8 +97,8 @@ library). People writing elements should base their code on these
 elements.
 
 %package -n %{oname}-plugins-good-Qt6
+Summary:	GStreamer plug-in for the Qt6
 Group:		System/Libraries
-Summary:	Sound
 Requires:	%{oname}-plugins-good
 %rename		gstreamer1.0-voip
 
