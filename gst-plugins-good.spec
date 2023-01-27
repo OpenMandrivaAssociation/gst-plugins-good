@@ -12,6 +12,7 @@ Source0:	https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good
 BuildRequires:	bzip2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
+BuildRequires:  qt6-qttools-linguist-tools
 BuildRequires:	pkgconfig(cairo) >= 1.10.0
 BuildRequires:	pkgconfig(cairo-gobject) >= 1.10.0
 BuildRequires:	pkgconfig(check)
