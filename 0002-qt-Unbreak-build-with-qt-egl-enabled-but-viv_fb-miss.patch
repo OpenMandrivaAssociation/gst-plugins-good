@@ -1,24 +1,10 @@
-From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
-From: "Jan Alexander Steffens (heftig)" <heftig@archlinux.org>
-Date: Thu, 20 Jul 2023 19:13:36 +0200
-Subject: [PATCH] qt: Unbreak build with qt-egl enabled but viv_fb missing
-
-Avoid an error message when the feature is explicitly enabled:
-
-    ERROR: Feature qt-egl cannot be enabled: gstreamer-gl-viv_fb-1.0 is required
----
- subprojects/gst-plugins-good/ext/qt/meson.build | 17 ++++++-----------
- 1 file changed, 6 insertions(+), 11 deletions(-)
-
-diff --git a/gst-plugins-good/ext/qt/meson.build b/gst-plugins-good/ext/qt/meson.build
-index 442b7d5870e1..d1db2514653e 100644
---- a/gst-plugins-good/ext/qt/meson.build
-+++ b/gst-plugins-good/ext/qt/meson.build
-@@ -120,6 +120,12 @@ if qt5_egl.allowed()
+diff -uraN gst-plugins-good-1.22.5/ext/qt/meson.build omv-gst-plugins-good-1.22.5/ext/qt/meson.build
+--- gst-plugins-good-1.22.5/ext/qt/meson.build	2023-07-20 16:22:48.000000000 +0200
++++ omv-gst-plugins-good-1.22.5/ext/qt/meson.build	2023-07-31 18:15:37.669818268 +0200
+@@ -120,6 +120,11 @@
    qt_defines += ['-DHAVE_QT_EGLFS']
    optional_deps += gstglegl_dep
    have_qt_windowing = true
-+
 +  # EGL windowing for Vivante Framebuffer (e.g. i.MX6)
 +  if gstglviv_fb_dep.found()
 +    qt_defines += ['-DHAVE_QT_VIV_FB']
@@ -27,7 +13,7 @@ index 442b7d5870e1..d1db2514653e 100644
  endif
  
  # Android windowing
-@@ -184,17 +190,6 @@ if host_system == 'ios'
+@@ -184,17 +189,6 @@
    endif
  endif
  
