@@ -10,10 +10,10 @@ Avoid an error message when the feature is explicitly enabled:
  subprojects/gst-plugins-good/ext/qt/meson.build | 17 ++++++-----------
  1 file changed, 6 insertions(+), 11 deletions(-)
 
-diff --git a/subprojects/gst-plugins-good/ext/qt/meson.build b/subprojects/gst-plugins-good/ext/qt/meson.build
+diff --git a/gst-plugins-good/ext/qt/meson.build b/gst-plugins-good/ext/qt/meson.build
 index 442b7d5870e1..d1db2514653e 100644
---- a/subprojects/gst-plugins-good/ext/qt/meson.build
-+++ b/subprojects/gst-plugins-good/ext/qt/meson.build
+--- a/gst-plugins-good/ext/qt/meson.build
++++ b/gst-plugins-good/ext/qt/meson.build
 @@ -120,6 +120,12 @@ if qt5_egl.allowed()
    qt_defines += ['-DHAVE_QT_EGLFS']
    optional_deps += gstglegl_dep
