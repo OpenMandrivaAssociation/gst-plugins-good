@@ -1,0 +1,33 @@
+diff -uraN gst-plugins-good-1.22.5/ext/qt/meson.build omv-gst-plugins-good-1.22.5/ext/qt/meson.build
+--- gst-plugins-good-1.22.5/ext/qt/meson.build	2023-07-20 16:22:48.000000000 +0200
++++ omv-gst-plugins-good-1.22.5/ext/qt/meson.build	2023-07-31 18:15:37.669818268 +0200
+@@ -120,6 +120,11 @@
+   qt_defines += ['-DHAVE_QT_EGLFS']
+   optional_deps += gstglegl_dep
+   have_qt_windowing = true
++  # EGL windowing for Vivante Framebuffer (e.g. i.MX6)
++  if gstglviv_fb_dep.found()
++    qt_defines += ['-DHAVE_QT_VIV_FB']
++    optional_deps += gstglviv_fb_dep
++  endif
+ endif
+ 
+ # Android windowing
+@@ -184,17 +189,6 @@
+   endif
+ endif
+ 
+-# EGL windowing for Vivante Framebuffer (e.g. i.MX6)
+-qt5_viv_fb = qt5_egl \
+-    .require(host_system == 'linux') \
+-    .require(gstglviv_fb_dep.found(), error_message: 'gstreamer-gl-viv_fb-1.0 is required') \
+-    .require(gst_gl_have_platform_egl, error_message: 'egl platform support in gstreamer-gl is required')
+-if qt5_viv_fb.allowed()
+-  qt_defines += ['-DHAVE_QT_VIV_FB']
+-  optional_deps += gstglviv_fb_dep
+-  have_qt_windowing = true
+-endif
+-
+ if qt5_option.require(have_qt_windowing).allowed()
+   # rpath is needed to be able to load the plugin on macOS inside the devenv
+   qmlgl_kwargs = {}
