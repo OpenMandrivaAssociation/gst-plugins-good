@@ -1,0 +1,11 @@
+diff -up gst-plugins-good-1.22.7/ext/mpg123/gstmpg123audiodec.c.omv~ gst-plugins-good-1.22.7/ext/mpg123/gstmpg123audiodec.c
+--- gst-plugins-good-1.22.7/ext/mpg123/gstmpg123audiodec.c.omv~	2023-11-13 23:11:48.609650236 +0100
++++ gst-plugins-good-1.22.7/ext/mpg123/gstmpg123audiodec.c	2023-11-13 23:11:59.353753667 +0100
+@@ -29,6 +29,7 @@
+  * ]| Decode and play the mp3 file
+  */
+ 
++#define MPG123_NO_LARGENAME 1
+ #ifdef HAVE_CONFIG_H
+ #include <config.h>
+ #endif
