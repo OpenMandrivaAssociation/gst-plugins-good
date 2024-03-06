@@ -3,11 +3,11 @@
 
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
-Version:	1.22.10
+Version:	1.24.0
 Release:	1
 License:	LGPLv2+
 Group:		Sound
-Url:		http://gstreamer.freedesktop.org/
+Url:		https://gstreamer.freedesktop.org/
 Source0:	https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-%{version}.tar.xz
 Patch0:		gst-plugins-good-mpg123.patch
 
@@ -279,7 +279,8 @@ echo 'have_oss4 = false' > sys/oss4/meson.build
 	-Ddoc=disabled \
 	-Dpackage-name='OpenMandriva %{name} %{version}-%{release}' \
 	-Drpicamsrc=disabled \
-	-Dpackage-origin='%{disturl}'
+	-Dpackage-origin='%{disturl}' \
+ 	--buildtype=release
 
 %meson_build
 
