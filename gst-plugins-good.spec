@@ -336,7 +336,8 @@ rm -rf %{buildroot}%{_docdir}/docs/plugins/html %{buildroot}%{_datadir}/gtk-doc
 %{_libdir}/gstreamer-%{api}/libgstossaudio.so
 %{_libdir}/gstreamer-%{api}/libgstpng.so
 %{_libdir}/gstreamer-%{api}/libgstqmlgl.so
-
+%{_libdir}/gstreamer-%{api}/libgstamrnb.so
+%{_libdir}/gstreamer-%{api}/libgstamrwbdec.so
 %{_libdir}/gstreamer-%{api}/libgstreplaygain.so
 %{_libdir}/gstreamer-%{api}/libgstrtp.so
 %{_libdir}/gstreamer-%{api}/libgstrtpmanager.so
