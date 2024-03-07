@@ -3,11 +3,11 @@
 
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
-Version:	1.22.10
+Version:	1.24.0
 Release:	1
 License:	LGPLv2+
 Group:		Sound
-Url:		http://gstreamer.freedesktop.org/
+Url:		https://gstreamer.freedesktop.org/
 Source0:	https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-%{version}.tar.xz
 Patch0:		gst-plugins-good-mpg123.patch
 
@@ -47,7 +47,10 @@ BuildRequires:	cmake(Qt6Network)
 BuildRequires:	cmake(Qt6Widgets)
 BuildRequires:	cmake(Qt6Qml)
 BuildRequires:	cmake(Qt6Quick)
+BuildRequires:  cmake(Qt6ShaderTools)
 BuildRequires:	cmake(Qt6WaylandClient)
+BuildRequires:  pkgconfig(opencore-amrnb)
+BuildRequires:  pkgconfig(opencore-amrwb)
 BuildRequires:	pkgconfig(shout)
 BuildRequires:	pkgconfig(theora)
 BuildRequires:	pkgconfig(twolame)
@@ -279,7 +282,8 @@ echo 'have_oss4 = false' > sys/oss4/meson.build
 	-Ddoc=disabled \
 	-Dpackage-name='OpenMandriva %{name} %{version}-%{release}' \
 	-Drpicamsrc=disabled \
-	-Dpackage-origin='%{disturl}'
+	-Dpackage-origin='%{disturl}' \
+ 	--buildtype=release
 
 %meson_build
 
@@ -332,7 +336,8 @@ rm -rf %{buildroot}%{_docdir}/docs/plugins/html %{buildroot}%{_datadir}/gtk-doc
 %{_libdir}/gstreamer-%{api}/libgstossaudio.so
 %{_libdir}/gstreamer-%{api}/libgstpng.so
 %{_libdir}/gstreamer-%{api}/libgstqmlgl.so
-
+%{_libdir}/gstreamer-%{api}/libgstamrnb.so
+%{_libdir}/gstreamer-%{api}/libgstamrwbdec.so
 %{_libdir}/gstreamer-%{api}/libgstreplaygain.so
 %{_libdir}/gstreamer-%{api}/libgstrtp.so
 %{_libdir}/gstreamer-%{api}/libgstrtpmanager.so
