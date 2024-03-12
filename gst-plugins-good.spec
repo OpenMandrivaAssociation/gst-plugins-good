@@ -4,7 +4,7 @@
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
 Version:	1.24.0
-Release:	2
+Release:	3
 License:	LGPLv2+
 Group:		Sound
 Url:		https://gstreamer.freedesktop.org/
@@ -72,8 +72,8 @@ BuildRequires:	nasm => 0.90
 BuildRequires:	valgrind
 %endif
 %endif
-Suggests: (%{oname}-qt5 if %{_lib}qt5gui5)
-Suggests: (%{oname}-gtk if %{_lib}gtk3_0)
+Recommends: (%{oname}-qt5 if %{_lib}qt5gui5)
+Recommends: (%{oname}-gtk if %{_lib}gtk3_0)
 
 %description
 GStreamer is a streaming-media framework, based on graphs of filters which
