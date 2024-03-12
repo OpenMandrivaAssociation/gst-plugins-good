@@ -4,7 +4,7 @@
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
 Version:	1.24.0
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		Sound
 Url:		https://gstreamer.freedesktop.org/
@@ -72,6 +72,8 @@ BuildRequires:	nasm => 0.90
 BuildRequires:	valgrind
 %endif
 %endif
+Suggests: (%{oname}-qt5 if %{_lib}qt5gui5)
+Suggests: (%{oname}-gtk if %{_lib}gtk3_0)
 
 %description
 GStreamer is a streaming-media framework, based on graphs of filters which
@@ -268,6 +270,28 @@ Plug-Ins for creating and playing WavPack audio files.
 %files -n	%{oname}-wavpack
 %{_libdir}/gstreamer-%{api}/libgstwavpack.so
 
+%package -n %{oname}-gtk
+Summary:	Gstreamer plugin for integrating with GTK 3.x
+Group:		Sound
+Requires:	%{oname}-plugins-base
+
+%description -n %{oname}-gtk
+Gstreamer plugin for integrating with GTK 3.x
+
+%files -n	%{oname}-gtk
+%{_libdir}/gstreamer-%{api}/libgstgtk.so
+
+%package -n %{oname}-qt5
+Summary:	Gstreamer plugin for integrating with Qt 5.x
+Group:		Sound
+Requires:	%{oname}-plugins-base
+
+%description -n %{oname}-qt5
+Gstreamer plugin for integrating with Qt 5.x
+
+%files -n	%{oname}-qt5
+%{_libdir}/gstreamer-%{api}/libgstqmlgl.so
+
 %prep
 %autosetup -p1
 %if "%{_lib}" != "lib64"
@@ -283,6 +307,7 @@ echo 'have_oss4 = false' > sys/oss4/meson.build
 	-Dpackage-name='OpenMandriva %{name} %{version}-%{release}' \
 	-Drpicamsrc=disabled \
 	-Dpackage-origin='%{disturl}' \
+	-Dqt6=enabled \
  	--buildtype=release
 
 %meson_build
@@ -318,7 +343,6 @@ rm -rf %{buildroot}%{_docdir}/docs/plugins/html %{buildroot}%{_datadir}/gtk-doc
 %{_libdir}/gstreamer-%{api}/libgstgdkpixbuf.so
 %{_libdir}/gstreamer-%{api}/libgstgoom.so
 %{_libdir}/gstreamer-%{api}/libgstgoom2k1.so
-%{_libdir}/gstreamer-%{api}/libgstgtk.so
 %{_libdir}/gstreamer-%{api}/libgsticydemux.so
 %{_libdir}/gstreamer-%{api}/libgstid3demux.so
 %{_libdir}/gstreamer-%{api}/libgstimagefreeze.so
@@ -335,7 +359,6 @@ rm -rf %{buildroot}%{_docdir}/docs/plugins/html %{buildroot}%{_datadir}/gtk-doc
 %{_libdir}/gstreamer-%{api}/libgstnavigationtest.so
 %{_libdir}/gstreamer-%{api}/libgstossaudio.so
 %{_libdir}/gstreamer-%{api}/libgstpng.so
-%{_libdir}/gstreamer-%{api}/libgstqmlgl.so
 %{_libdir}/gstreamer-%{api}/libgstamrnb.so
 %{_libdir}/gstreamer-%{api}/libgstamrwbdec.so
 %{_libdir}/gstreamer-%{api}/libgstreplaygain.so
