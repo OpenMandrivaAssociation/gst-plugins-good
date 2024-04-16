@@ -4,7 +4,7 @@
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
 Version:	1.24.0
-Release:	3
+Release:	4
 License:	LGPLv2+
 Group:		Sound
 Url:		https://gstreamer.freedesktop.org/
@@ -130,7 +130,7 @@ Plug-in for the JACK professional sound server.
 Summary:	GStreamer HTTP plugin based on libsoup
 Group:		System/Libraries
 Requires:	%{oname}-plugins-base
-BuildRequires:	pkgconfig(libsoup-2.4)
+BuildRequires:	pkgconfig(libsoup-3.0)
 
 %description -n %{oname}-soup
 Plug-in for HTTP access based on libsoup.
