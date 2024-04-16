@@ -18,7 +18,6 @@ BuildRequires:	qt6-qttools-linguist-tools
 BuildRequires:	pkgconfig(cairo) >= 1.10.0
 BuildRequires:	pkgconfig(cairo-gobject) >= 1.10.0
 BuildRequires:	pkgconfig(check)
-BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gdk-2.0)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0) >= 2.8.0
@@ -61,6 +60,7 @@ BuildRequires:	pkgconfig(xdamage)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(xv)
+BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(valgrind)
 BuildRequires:	cmake(Qt5LinguistTools)
 BuildRequires:	pkgconfig(openssl)
