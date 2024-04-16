@@ -4,7 +4,7 @@
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
 Version:	1.24.0
-Release:	4
+Release:	5
 License:	LGPLv2+
 Group:		Sound
 Url:		https://gstreamer.freedesktop.org/
@@ -274,6 +274,7 @@ Plug-Ins for creating and playing WavPack audio files.
 Summary:	Gstreamer plugin for integrating with GTK 3.x
 Group:		Sound
 Requires:	%{oname}-plugins-base
+Supplements:	gtk+3.0
 
 %description -n %{oname}-gtk
 Gstreamer plugin for integrating with GTK 3.x
