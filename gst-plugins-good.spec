@@ -3,8 +3,8 @@
 
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
-Version:	1.24.10
-Release:	2
+Version:	1.24.11
+Release:	1
 License:	LGPLv2+
 Group:		Sound
 Url:		https://gstreamer.freedesktop.org/
