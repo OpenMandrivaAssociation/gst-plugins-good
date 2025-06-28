@@ -10,7 +10,6 @@ Group:		Sound
 Url:		https://gstreamer.freedesktop.org/
 Source0:	https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-%{version}.tar.xz
 Patch0:		gst-plugins-good-mpg123.patch
-Patch1:		https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/9085.patch
 
 BuildRequires:	pkgconfig(bzip2)
 BuildRequires:	gettext-devel
