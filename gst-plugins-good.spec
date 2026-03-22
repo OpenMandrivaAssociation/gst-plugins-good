@@ -4,7 +4,7 @@
 Summary:	GStreamer Streaming-media framework plug-ins
 Name:		gst-plugins-good
 Version:	1.28.1
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		Sound
 Url:		https://gstreamer.freedesktop.org/
@@ -60,7 +60,7 @@ BuildRequires:	pkgconfig(xdamage)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(xv)
-BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(libxml-2.0) >= 2.15.2
 BuildRequires:	pkgconfig(valgrind)
 BuildRequires:	cmake(Qt5LinguistTools)
 BuildRequires:	pkgconfig(openssl)
